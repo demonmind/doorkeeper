@@ -15,7 +15,7 @@ module Doorkeeper
       end
 
       def initialize(attributes = {})
-        super(attributes.merge(name: :invalid_token, state: :unauthorized))
+        super(attributes.merge(name: :invalid_token, state: :forbidden))
         @reason = attributes[:reason] || :unknown
       end
 
