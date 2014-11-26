@@ -26,6 +26,7 @@ module Doorkeeper
                       if: :use_refresh_token?
 
     def self.authenticate(token)
+      return Rails.cache.read(token) unless Rails.cache.read(token).nil?
       where(token: token).first
     end
 
