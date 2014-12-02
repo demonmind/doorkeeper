@@ -3,11 +3,11 @@ module Doorkeeper
     class Token
       module Methods
         def from_access_token_param(request)
-          request.parameters[:access_token]
+          request.parameters[:access_token] || request.parameters[:API_KEY]
         end
 
         def from_bearer_param(request)
-          request.parameters[:bearer_token]
+          request.parameters[:bearer_token] || request.parameters[:API_KEY]
         end
 
         def from_bearer_authorization(request)
