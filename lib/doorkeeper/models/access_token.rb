@@ -28,6 +28,7 @@ module Doorkeeper
     def self.authenticate(token)
       return ::Rails.cache.read(token) unless ::Rails.cache.read(token).nil?
       where(token: token).first
+      ::Rails.cache.write(token, self, timeToLive: 12.hours)
     end
 
     def self.by_refresh_token(refresh_token)
