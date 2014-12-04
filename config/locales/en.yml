@@ -59,6 +59,7 @@ en:
         invalid_token:
           revoked: "The access token was revoked"
           expired: "The access token expired"
+          nocreds: "The access token is missing"
           unknown: "The access token is invalid"
 
     flash:
